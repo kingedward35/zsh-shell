@@ -71,15 +71,22 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  cabal
   colored-man-pages
   colorize
   pip
   python
   osx
   lein
+  npm
+  nvm
+  npx
+  stack
+  zsh-navigation-tools
 )
 
 source $ZSH/oh-my-zsh.sh
+source /usr/local/Cellar/zsh-syntax-highlighting
 
 # User configuration
 
