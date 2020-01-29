@@ -70,8 +70,8 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
   cabal
+  git
   colored-man-pages
   colorize
   pip
@@ -83,10 +83,11 @@ plugins=(
   npx
   stack
   zsh-navigation-tools
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
-source /usr/local/Cellar/zsh-syntax-highlighting
 
 # User configuration
 
