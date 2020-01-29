@@ -2,6 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+export LAMBDA_MOD_N_DIR_LEVELS=10
 export ZSH="~/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
