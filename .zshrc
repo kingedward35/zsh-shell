@@ -134,6 +134,7 @@ export PATH="~/.local/bin/hindent:$PATH"
 alias gcm="git commit -m"
 alias gaa="git add ."
 alias gs="git status"
+alias zs="source ~/.zshrc"
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
