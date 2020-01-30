@@ -72,6 +72,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  auto-color-ls
   cabal
   git
   colored-man-pages
@@ -79,6 +80,8 @@ plugins=(
   pip
   python
   osx
+  extract
+  history
   lein
   npm
   nvm
@@ -101,10 +104,14 @@ export LDFLAGS="-L/usr/local/opt/icu4c/lib:$PATH"
 export CPPFLAGS="-I/usr/local/opt/icu4c/include:$PATH"
 export PATH="~/.stack:$PATH"
 export PATH="~/.local/bin/hlint:$PATH"
-export PATH=". ~/.nix-profile/etc/profile.d/nix.sh:$PATH"
+# export PATH=". ~/.nix-profile/etc/profile.d/nix.sh:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="~/.local/bin:$PATH"
 export PATH="~/.local/bin/hindent:$PATH"
+export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -134,8 +141,11 @@ export PATH="~/.local/bin/hindent:$PATH"
 alias gcm="git commit -m"
 alias gaa="git add ."
 alias gs="git status"
+alias jstest="npm run test"
 alias zs="source ~/.zshrc"
 alias zshconfig="code-insiders ~/.zshrc"
+alias lc="colorls -a"
+
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
