@@ -145,6 +145,7 @@ alias jstest="npm run test"
 alias zs="source ~/.zshrc"
 alias zshconfig="code-insiders ~/.zshrc"
 alias lc="colorls -a"
+alias rm="trash "
 
 
 ### Added by Zinit's installer
