@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export LAMBDA_MOD_N_DIR_LEVELS=10
-export ZSH="~/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -79,9 +79,9 @@ plugins=(
   colorize
   pip
   python
-  osx
-  extract
   history
+  extract
+  osx
   lein
   npm
   nvm
@@ -93,7 +93,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 
@@ -102,12 +101,12 @@ export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 export LDFLAGS="-L/usr/local/opt/icu4c/lib:$PATH"
 export CPPFLAGS="-I/usr/local/opt/icu4c/include:$PATH"
-export PATH="~/.stack:$PATH"
-export PATH="~/.local/bin/hlint:$PATH"
+export PATH="$HOME/.stack:$PATH"
+export PATH="$HOME/.local/bin/hlint:$PATH"
 # export PATH=". ~/.nix-profile/etc/profile.d/nix.sh:$PATH"
 export PATH="/usr/local/bin:$PATH"
-export PATH="~/.local/bin:$PATH"
-export PATH="~/.local/bin/hindent:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin/hindent:$PATH"
 export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
@@ -134,7 +133,6 @@ export CPPFLAGS="-I/usr/local/opt/ruby/include"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #git aliases
@@ -144,9 +142,9 @@ alias gs="git status"
 alias jstest="npm run test"
 alias zs="source ~/.zshrc"
 alias zshconfig="code-insiders ~/.zshrc"
-alias lc="colorls -a"
+alias ls="colorls -a"
 alias rm="trash "
-
+alias cl="clear"
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -160,3 +158,5 @@ source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit installer's chunk
+
+source /Users/verlonsmith/Library/Preferences/org.dystroy.broot/launcher/bash/br
