@@ -109,6 +109,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/bin/hindent:$PATH"
 export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/bin/idris:$PATH"
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby/include"
 
@@ -145,6 +146,11 @@ alias zshconfig="code-insiders ~/.zshrc"
 alias ls="colorls -a"
 alias rm="trash "
 alias cl="clear"
+alias doom-refresh="$HOME/.emacs.d/bin/doom refresh"
+alias doom-doctor="$HOME/.emacs.d/bin/doom doctor"
+alias doom-upgrade="$HOME/.emacs.d/bin/doom upgrade"
+alias doom-help="$HOME/.emacs.d/bin/doom help"
+alias doom-install="$HOME/.emacs.d/bin/doom install"
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
