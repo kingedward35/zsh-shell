@@ -100,9 +100,12 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 export LDFLAGS="-L/usr/local/opt/icu4c/lib:$PATH"
+# export LDFLAGS="-L/usr/local/opt/ghc@8.6/lib"
 export CPPFLAGS="-I/usr/local/opt/icu4c/include:$PATH"
+export PATH="$HOME/.local/bin/hie-wrapper:$PATH"
 export PATH="$HOME/.stack:$PATH"
 export PATH="$HOME/.local/bin/hlint:$PATH"
+# export PATH="/usr/local/opt/ghc@8.6/bin:$PATH"
 # export PATH=". ~/.nix-profile/etc/profile.d/nix.sh:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
@@ -166,3 +169,4 @@ autoload -Uz _zinit
 ### End of Zinit installer's chunk
 
 source /Users/verlonsmith/Library/Preferences/org.dystroy.broot/launcher/bash/br
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
