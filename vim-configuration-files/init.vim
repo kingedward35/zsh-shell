@@ -7,12 +7,16 @@ filetype off
 call plug#begin("~/.local/share/nvim/plugged")
 Plug 'purescript-contrib/purescript-vim'
 Plug 'idris-hackers/idris-vim'
+Plug 'sbdchd/neoformat'
 Plug 'Yggdroot/indentLine'
 Plug 'mhartington/oceanic-next'
 Plug 'cocopon/iceberg.vim'
+Plug 'jordwalke/vim-reasonml'
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'jdsimcoe/hyper.vim'
 Plug 'rakr/vim-one'
+Plug 'reasonml-editor/vim-reason-plus'
+Plug 'vim-syntastic/syntastic'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
@@ -21,6 +25,7 @@ Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 Plug 'scrooloose/nerdcommenter'
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-fugitive'
 
 " LanguageServer client for NeoVim.
 Plug 'autozimu/LanguageClient-neovim', {
@@ -67,14 +72,21 @@ set noswapfile
 
 " Useful Maps
 let mapleader=','
+let maplocalleader='\'
 nnoremap ; :
 map <leader>z <C-w><C-w>
+map <leader>h :wincmd h<CR>
 nmap <silent> <leader>/ :nohlsearch<CR>
 nmap <leader>s :setlocal spell! spell?<CR>
 nmap <leader>wa :wqa<CR>
 nmap <leader>ww :w<CR>
 nmap <leader>qa :qa<CR>
 nmap <leader>qq :bd<CR>
+
+nnoremap <Leader>t :botright vertical terminal<CR>
+if has('nvim')
+  tnoremap<Esc> <C-\><C-n>
+endif
 
 " Tab Settings
 set shiftround
@@ -249,6 +261,16 @@ nmap <silent> <TAB> <Plug>(coc-range-select)
 xmap <silent> <TAB> <Plug>(coc-range-select)
 xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
 
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " Using CocList
 nmap <leader>ff :CocList list<cr>
 nmap <leader>fb :CocList buffers<cr>
@@ -270,8 +292,17 @@ let g:idris_indent_case = 5
 let g:idris_indent_let = 4
 let g:idris_indent_where = 6
 let g:idris_indent_do = 3
+let g:syntastic_idris_checkers=['idris']
 
 " language-server
+let g:LanguageClient_useFloatingHover=1
+let g:LanguageClient_hoverPreview='Always'
+let g:LanguageClient_diagnosticsDisplay={
+      \   1: {'signTexthl': 'LineNr', 'virtualTexthl': 'User8'},
+      \   2: {'signTexthl': 'LineNr', 'virtualTexthl': 'User8'},
+      \   3: {'signTexthl': 'LineNr', 'virtualTexthl': 'User8'},
+      \   4: {'signTexthl': 'LineNr', 'virtualTexthl': 'User8'},
+      \ }
 let g:LanguageClient_serverCommands = {
   \ 'typescript': ['javascript-typescript-stdio']
   \ }
