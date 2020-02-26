@@ -7,6 +7,7 @@ filetype off
 call plug#begin("~/.local/share/nvim/plugged")
 Plug 'purescript-contrib/purescript-vim'
 Plug 'idris-hackers/idris-vim'
+Plug '/tpope/vim-surround'
 Plug 'sbdchd/neoformat'
 Plug 'Yggdroot/indentLine'
 Plug 'mhartington/oceanic-next'
@@ -15,7 +16,6 @@ Plug 'jordwalke/vim-reasonml'
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'jdsimcoe/hyper.vim'
 Plug 'rakr/vim-one'
-Plug 'reasonml-editor/vim-reason-plus'
 Plug 'vim-syntastic/syntastic'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -25,6 +25,7 @@ Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 Plug 'scrooloose/nerdcommenter'
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'jiangmiao/auto-pairs'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-fugitive'
 
 " LanguageServer client for NeoVim.
@@ -36,10 +37,15 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
+Plug 'frigoeu/psc-ide-vim'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'tpope/vim-commentary'
 call plug#end()
 
+" let g:LanguageClient_serverCommands = {
+"     \ 'reason': ['~/Desktop/rls-macos/reason-language-server'],
+"     \ }
+let g:deoplete#enable_at_startup = 1
 let g:NERDTreeGitStatusWithFlags = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:NERDTreeGitStatusNodeColorization = 1
@@ -76,13 +82,15 @@ let maplocalleader='\'
 nnoremap ; :
 map <leader>z <C-w><C-w>
 map <leader>h :wincmd h<CR>
+map <leader>ap :Papply <CR>
+map <leader>ty :Ptype <CR>
 nmap <silent> <leader>/ :nohlsearch<CR>
 nmap <leader>s :setlocal spell! spell?<CR>
 nmap <leader>wa :wqa<CR>
 nmap <leader>ww :w<CR>
 nmap <leader>qa :qa<CR>
 nmap <leader>qq :bd<CR>
-
+imap jj <Esc>
 nnoremap <Leader>t :botright vertical terminal<CR>
 if has('nvim')
   tnoremap<Esc> <C-\><C-n>
@@ -107,6 +115,9 @@ set background=dark
 colorscheme one
 syntax on
 filetype plugin indent on
+
+" Reason
+autocmd FileType reason map <buffer> <D-C> :ReasonPrettyPrint<Cr>
 
 " NERDTree
 " autocmd vimenter * NERDTree | wincmd p
@@ -266,8 +277,8 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_always_populate_loc_list = 0
+" let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
@@ -307,6 +318,9 @@ let g:LanguageClient_serverCommands = {
   \ 'typescript': ['javascript-typescript-stdio']
   \ }
 
+" Purescript setup
+let g:psc_ide_syntastic_mode = 1
+" let g:psc_ide_log_level = 3
 " If you want to highlight conceal color with your colorscheme, disable by
 " let g:indentLine_setColors = 0
 " coc config
