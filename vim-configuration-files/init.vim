@@ -69,6 +69,7 @@ set splitright
 set showmatch
 set hlsearch
 set incsearch
+set mouse=a
 set guifont=Fira\ Code:h12
 set termguicolors
 syntax on
