@@ -69,6 +69,7 @@ set splitright
 set showmatch
 set hlsearch
 set incsearch
+set inccommand=nosplit
 set mouse=a
 set guifont=Fira\ Code:h12
 set termguicolors
@@ -91,7 +92,10 @@ nmap <leader>wa :wqa<CR>
 nmap <leader>ww :w<CR>
 nmap <leader>qa :qa<CR>
 nmap <leader>qq :bd<CR>
-imap jj <Esc>
+imap jj <Esc>,
+,,,
+vmap ++ <plug>NERDCommenterToggle
+nmap ++ <plug>NERDCommenterToggle
 nnoremap <Leader>t :botright vertical terminal<CR>
 if has('nvim')
   tnoremap<Esc> <C-\><C-n>
